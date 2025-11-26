@@ -1,7 +1,7 @@
 import fs from 'fs'
 import imageKit from '../configs/imageKit.js';
 import Blog from '../models/Blog.js';
-import Comment from '../models/comment.js';
+import Comment from '../models/Comment.js';
 import main from '../configs/gemini.js';
 
 export const AddBlog = async (req, res) => {
