@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="VibeDraft favicon">
+  <defs>
+    <style>
+      .paper { fill: none; stroke: #24323a; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .line { fill: none; stroke: #24323a; stroke-width: 3; stroke-linecap: round; }
+      .pencil-body { fill: #f06b4a; stroke: #d95737; stroke-width: 2; stroke-linejoin: round; }
+      .pencil-tip { fill: #e07a4a; stroke: #c95e34; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- Paper outline -->
+  <rect x="10" y="8" width="40" height="48" rx="6" ry="6" class="paper"/>
+
+  <!-- Paper lines -->
+  <g transform="translate(16,18)">
+    <line x1="0" y1="0" x2="28" y2="0" class="line"/>
+    <line x1="0" y1="8" x2="28" y2="8" class="line"/>
+    <line x1="0" y1="16" x2="28" y2="16" class="line"/>
+  </g>
+
+  <!-- Pencil -->
+  <g transform="translate(22,38) rotate(-30)">
+    <rect x="0" y="-3" width="26" height="6" rx="1" ry="1" class="pencil-body"/>
+    <path d="M26 -3 L30 0 L26 3 Z" class="pencil-tip"/>
+  </g>
+</svg>

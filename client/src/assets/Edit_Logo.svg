@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500">
+  <rect width="1400" height="500" fill="#ffffff"/>
+
+  <!-- Paper -->
+  <g transform="translate(180,125)">
+    <rect x="0" y="0" width="180" height="230" rx="20" ry="20"
+      fill="none" stroke="#2C3A3C" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- lines -->
+    <line x1="35" y1="50"  x2="135" y2="50"  stroke="#2C3A3C" stroke-width="14" stroke-linecap="round"/>
+    <line x1="35" y1="105" x2="135" y2="105" stroke="#2C3A3C" stroke-width="14" stroke-linecap="round"/>
+    <line x1="35" y1="160" x2="135" y2="160" stroke="#2C3A3C" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Pencil (Primary Color / #5044E5) -->
+    <g transform="translate(95,140) rotate(-55)">
+      <!-- Pencil body -->
+      <rect x="0" y="-25" width="170" height="50" rx="20" ry="20"
+        fill="#5044E5" stroke="#3a33b0" stroke-width="8"/>
+
+      <!-- Pencil tip -->
+      <polygon points="170,-25 200,0 170,25" fill="#3a33b0"/>
+
+      <!-- Highlight stripe -->
+      <rect x="20" y="-15" width="80" height="30" rx="10" ry="10" fill="#7e75ff"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <text x="420" y="220" font-family="Arial, sans-serif" font-size="130" font-weight="700" fill="#1F2D2F">VibeDraft</text>
+  <text x="420" y="300" font-family="Arial, sans-serif" font-size="42" font-weight="600" letter-spacing="6" fill="#1F2D2F">
+    WHERE IDEAS FIND THEIR VIBE
+  </text>
+</svg>
