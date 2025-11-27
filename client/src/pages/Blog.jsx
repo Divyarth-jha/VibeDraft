@@ -18,55 +18,48 @@ const Blog = () => {
   const [name, setName] = useState('')
   const [content, setContent] = useState('')
 
-  const fetchBlogData = async () => {
+  const fetchBlogData = async ()=>{
     try {
-      const { data } = await axios.get(`/api/blog/${id}`)
+      const {data} = await axios.get(`/api/blog/${id}`)
       data.success ? setData(data.blog) : toast.error(data.message)
     } catch (error) {
       toast.error(error.message)
     }
   }
-const fetchComments = async () => {
-  try {
-    const { data } = await axios.post('/api/blog/comments', { blogId: id });
 
-    if (data.success) {
-      setComments(data.comments);
-    } else {
-      toast.error(data.message);
-    }
-  } catch (error) {
-    toast.error("Error fetching comments!");
-  }
-};
-
-
-  const addComment = async (e) => {
-    e.preventDefault()
+  const fetchComments = async () =>{
     try {
-      const { data } = await axios.post(`/api/blog/add-comment`, {
-        blogId: id,
-        name,
-        content
-      })
-
-      if (data.success) {
-        toast.success('Comment added successfully')
-        setName('')
-        setContent('')
-        fetchComments() // refresh after add
-      } else {
-        toast.error(data.message)
+      const { data } = await axios.post('/api/blog/comments', {blogId: id})
+      if (data.success){
+        setComments(data.comments)
+      }else{
+        toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
   }
 
-  useEffect(() => {
+  const addComment = async (e)=>{
+    e.preventDefault();
+    try {
+      const { data } = await axios.post('/api/blog/add-comment', {blog: id, name, content});
+      if (data.success){
+        toast.success(data.message)
+        setName('')
+        setContent('')
+      }else{
+         toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
+
+  useEffect(()=>{
     fetchBlogData()
     fetchComments()
-  }, [id])
+  },[])
 
   return data ? (
     <div className='relative'>

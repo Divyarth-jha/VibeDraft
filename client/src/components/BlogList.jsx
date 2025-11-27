@@ -10,12 +10,15 @@ const BlogList = () => {
   const {blogs,input} = useAppContext();
 
 
-  const filteredBlogs = blogs.filter(() =>{
-    if(input === ''){
-      return blogs;
-    }
-    return blogs.filter((blog) => blog.title.toLowerCase().includes(input.toLowerCase()) || blog.category.toLowerCase().includes(input.toLowerCase()));
-  });
+  const filteredBlogs = blogs.filter((blog) => {
+  return (
+    (menu === "All" || blog.category === menu) &&
+    (input === "" ||
+      blog.title.toLowerCase().includes(input.toLowerCase()) ||
+      blog.category.toLowerCase().includes(input.toLowerCase()))
+  );
+});
+
   return (
     <div>
       <div className="flex justify-center gap-4 sm:gap-8 my-10 relative">

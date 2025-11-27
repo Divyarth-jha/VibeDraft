@@ -14,25 +14,21 @@ const Dashboard = () => {
     })
  
 
-    const {axios}= useAppContext();
-const fetchDashboard = async () => {
-  try {
-    const { data } = await axios.post('/api/admin/dashboard');
-    if (data.success) {
-      setDashboardData(data.dashboardData);
-    } else {
-      toast.error(data.message);
-    }
-  } catch (error) {
-    toast.error("Error fetching dashboard data");
-  }
-}
+    const { axios } = useAppContext()
 
+     const fetchDashboard = async ()=>{
+       try {
+         const {data} = await axios.get('/api/admin/dashboard')
+         data.success ? setDashboardData(data.dashboardData) : toast.error(data.message)
+       } catch (error) {
+            toast.error(error.message)
+       }
+     }
 
-    useEffect(() => {
-      fetchDashboard()
-      
-    }, [])
+     useEffect(()=>{
+        fetchDashboard()
+     },[])
+
     
 
   return (
@@ -82,7 +78,7 @@ const fetchDashboard = async () => {
                     </thead>
                     <tbody>
                         {dashboardData.recentBlogs.map((blog,index)=>{
-                            return<BlogTableItem key={blog._id} blog={blog} fetcheblogs={fetchDashboard} index={index + 1}/>
+                            return<BlogTableItem key={blog._id} blog={blog} fetchBlogs={fetchDashboard} index={index + 1}/>
                         })}
                     </tbody>
                 </table>
